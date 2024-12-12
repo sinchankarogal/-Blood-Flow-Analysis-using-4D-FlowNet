@@ -90,3 +90,9 @@ class DicomData:
         save_to_h5(output_filepath, "venc_w", self.w_venc)
 
         save_to_h5(output_filepath, "dx", self.spacing)
+        
+        
+        
+        
+        
+    

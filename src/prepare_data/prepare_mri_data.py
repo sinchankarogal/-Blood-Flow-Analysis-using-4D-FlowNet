@@ -1,4 +1,3 @@
-
 import numpy as np
 import pydicom
 import os
@@ -123,3 +122,139 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# import numpy as np
+# import pydicom
+# import os
+# from DicomData import DicomData
+
+# def get_volume(dicom_path):
+#     """
+#     Get phase or magnitude image volume
+#     """
+#     ds = pydicom.dcmread(dicom_path)
+#     img = ds.pixel_array
+
+#     # Note: In our case, sequence name contains venc and direction info
+#     sequence_name = getattr(ds, 'SequenceName', 'UnknownSequence')
+
+#     # Get spacing information
+#     spacing = ds.PixelSpacing
+#     spacing.append(ds.SliceThickness)
+#     spacing = np.asarray(spacing)
+
+#     return np.asarray([img]), spacing, sequence_name
+
+
+# # def main():
+# #     # Hardcoded input DICOM directory
+# #     case_dir = '4DFlowNet\images'
+
+# #     # Other parameters...
+# #     output_path = '4DFlowNet\data'
+# #     output_filename = 'mri_data.h5'
+# #     in_multiplier = 1
+# #     fh_multiplier = -1
+# #     rl_multiplier = 1
+
+# #     output_filepath = f'{output_path}/{output_filename}'
+
+# #     # Create the output directories for phase and magnitude
+# #     phase_dir = os.path.join(output_path, 'phase_images')
+# #     mag_dir = os.path.join(output_path, 'magnitude_images')
+
+# #     if not os.path.isdir(phase_dir):
+# #         os.makedirs(phase_dir)
+
+# #     if not os.path.isdir(mag_dir):
+# #         os.makedirs(mag_dir)
+
+# #     # 3. Looping through the files in the input directory
+# #     for j, dicom_file in enumerate(os.listdir(case_dir)):
+# #         print(f"\rProcessing {j+1}/{len(os.listdir(case_dir))}          ", end="\r")
+
+# #         # Wrap it as DicomData instance
+# #         dicom_data = DicomData()
+
+# #         dicom_path = os.path.join(case_dir, dicom_file)
+
+# #         # Get the phase and magnitude images
+# #         phase_images, _, _ = get_volume(dicom_path)
+
+# #         dicom_data._phaseImages.append(phase_images)
+# #         dicom_data.sequenceNames.append('')  # Modify as needed
+# #         dicom_data.spacing = np.zeros(3)  # Modify as needed
+
+# #         # Save phase image
+# #         phase_image_path = os.path.join(phase_dir, f'phase_{j}.npy')
+# #         np.save(phase_image_path, phase_images)
+
+# #         # Save per row
+# #         dicom_data.determine_velocity_components(in_multiplier, fh_multiplier, rl_multiplier)
+# #         dicom_data.save_dataset(output_filepath, str(j))  # Use the index as trigger time
+
+# #     # End of file loop
+# #     print(f'\nDone! saved at {output_filepath}')
+
+# # if __name__ == '__main__':
+# #     main()
+
+
+# def main():
+#         # Hardcoded input DICOM directory
+#     case_dir = '4DFlowNet\images'
+
+#     # Other parameters...
+#     output_path = '4DFlowNet\data'
+#     output_filename = 'mri_data.h5'
+#     in_multiplier = 1
+#     fh_multiplier = -1
+#     rl_multiplier = 1
+
+#     output_filepath = f'{output_path}/{output_filename}'
+
+#     # Create the output directories for phase and magnitude
+#     phase_dir = os.path.join(output_path, 'phase_images')
+#     mag_dir = os.path.join(output_path, 'magnitude_images')
+
+#     if not os.path.isdir(phase_dir):
+#         os.makedirs(phase_dir)
+
+#     if not os.path.isdir(mag_dir):
+#         os.makedirs(mag_dir)
+
+#     # 3. Looping through the time frames
+#     for j in range(0, len(timeFrames)):
+#         triggerTime = timeFrames[j]
+#         print(f"\rProcessing {j+1}/{len(timeFrames)} (frame {triggerTime})          ", end="\r")
+
+#         # Wrap it as DicomData instance
+#         dicom_data = DicomData()
+
+#         # Collect the 3 phase and magnitude volumes for 1 time frame
+#         for mag_dir, p_dir in zip(mag_dirs, phase_dirs):
+#             magnitude_path = f'{case_dir}/{mag_dir}/{triggerTime}'
+#             phase_path = f'{case_dir}/{p_dir}/{triggerTime}'
+
+#             # Get the magnitude and phase images
+#             mag_images, _, _ = get_volume(magnitude_path)
+#             phase_images, spacing, sequence = get_volume(phase_path)
+
+#             dicom_data._phaseImages.append(phase_images)
+#             dicom_data._magImages.append(mag_images)
+#             dicom_data.sequenceNames.append(sequence)
+#             dicom_data.spacing = spacing
+
+#         # Make sure dicom_data is populated before calling determine_velocity_components
+#         if dicom_data._phaseImages and dicom_data._magImages:
+#             # Save per row
+#             dicom_data.determine_velocity_components(in_multiplier, fh_multiplier, rl_multiplier)
+#             dicom_data.save_dataset(output_filepath, triggerTime)
+
+#     # End of trigger time loop
+#     print(f'\nDone! saved at {output_filepath}')
+    
+    
+    
+# if __name__ == '__main__':
+#      main()

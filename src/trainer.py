@@ -10,7 +10,7 @@ def load_indexes(index_file):
     return indexes
 
 if __name__ == "__main__":
-    data_dir = '../data'
+    data_dir = 'data'
     
     # ---- Patch index files ----
     training_file = '{}/train.csv'.format(data_dir)
@@ -62,12 +62,12 @@ if __name__ == "__main__":
 
     # ------- Main Network ------
     print(f"4DFlowNet Patch {patch_size}, lr {initial_learning_rate}, batch {batch_size}")
-    network = TrainerController(patch_size, res_increase, initial_learning_rate, QUICKSAVE, network_name, low_resblock, hi_resblock)
-    network.init_model_dir()
+    # network = TrainerController(patch_size, res_increase, initial_learning_rate, QUICKSAVE, network_name, low_resblock, hi_resblock)
+    # network.init_model_dir()
 
-    if restore:
-        print(f"Restoring model {model_file}...")
-        network.restore_model(model_dir, model_file)
-        print("Learning rate", network.optimizer.lr.numpy())
+    # if restore:
+    #     print(f"Restoring model {model_file}...")
+    #     network.restore_model(model_dir, model_file)
+    #     print("Learning rate", network.optimizer.lr.numpy())
 
-    network.train_network(trainset, valset, n_epoch=epochs, testset=testset)
+    # network.train_network(trainset, valset, n_epoch=epochs, testset=testset)

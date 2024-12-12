@@ -19,7 +19,7 @@ if __name__ == "__main__":
     mask_threshold = 0.4 # Threshold for non-binary mask 
     minimum_coverage = 0.2 # Minimum fluid region within a patch. Any patch with less than this coverage will not be taken. Range 0-1
 
-    base_path = '../../data'
+    base_path = 'data'
     lr_file = 'example_data.h5' #LowRes velocity data
     hr_file = 'example_data_HR.h5' #HiRes velocity data
     output_filename = f'{base_path}/test{patch_size}.csv'
