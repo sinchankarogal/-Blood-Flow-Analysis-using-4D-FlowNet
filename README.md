@@ -90,10 +90,6 @@ https://github.com/user-attachments/assets/b69b0765-eed0-4a98-845f-5e1a77352074
 
 
 
-![output](https://github.com/user-attachments/assets/497f47f9-3363-4356-82fa-8f3044400b80)
-
-
-![outputhigh](https://github.com/user-attachments/assets/48fcdea7-bc40-4e4c-aaad-625ffb768c79)
 
 
 
