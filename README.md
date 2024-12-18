@@ -81,4 +81,20 @@ The model achieves high accuracy and generalization in capturing flow dynamics. 
 
 
 
+https://github.com/user-attachments/assets/ade2601d-33f7-4a41-b3af-5eb5a4f941b7
+
+
+
+
+https://github.com/user-attachments/assets/b69b0765-eed0-4a98-845f-5e1a77352074
+
+
+
+![output](https://github.com/user-attachments/assets/497f47f9-3363-4356-82fa-8f3044400b80)
+
+
+![outputhigh](https://github.com/user-attachments/assets/48fcdea7-bc40-4e4c-aaad-625ffb768c79)
+
+
+
 Thank you for exploring 4D FlowNet!
